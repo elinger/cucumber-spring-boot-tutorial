@@ -1,7 +1,7 @@
 Feature: Role based security
 
   Scenario: Customer cannot create user
-    Given I am a CUSTOMER
+    Given I am a AGENT
     When I create a user
     Then I get a FORBIDDEN response
 
@@ -18,5 +18,5 @@ Feature: Role based security
 
     Examples:
       | role               | httpStatus |
-      | CUSTOMER           | FORBIDDEN  |
+      | AGENT              | FORBIDDEN  |
       | OPERATIONS_MANAGER | CREATED    |

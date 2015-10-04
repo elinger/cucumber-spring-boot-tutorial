@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.PUT, "/users/*").hasAnyRole("CUSTOMER", "OPERATIONS_MANAGER")
+                .antMatchers(HttpMethod.PUT, "/users/*").hasAnyRole("AGENT", "OPERATIONS_MANAGER")
                 .antMatchers("/users/*").hasRole("OPERATIONS_MANAGER")
                 .antMatchers("/users").hasRole("OPERATIONS_MANAGER")
                 .and().httpBasic()
@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("john")
-                .password("test123").roles("CUSTOMER").and()
+                .password("test123").roles("AGENT").and()
                 .withUser("patrik")
                 .password("test123test123").roles("OPERATIONS_MANAGER");
     }

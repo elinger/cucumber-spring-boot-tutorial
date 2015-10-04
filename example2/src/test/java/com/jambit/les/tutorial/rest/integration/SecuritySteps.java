@@ -10,10 +10,10 @@ public class SecuritySteps {
     @Autowired
     private World world;
 
-    @Given("^I am a (CUSTOMER|OPERATIONS_MANAGER)$")
+    @Given("^I am a (AGENT|OPERATIONS_MANAGER)$")
     public void I_am_a__(final String role) {
         switch (role) {
-            case "CUSTOMER":
+            case "AGENT":
                 world.setPerformerCredentials("john", "test123");
                 break;
             case "OPERATIONS_MANAGER":
